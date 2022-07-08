@@ -39,7 +39,7 @@ A list of extra global variables to add to the global configuration section insi
     - hosts: kubernetes-master
       become: true
       roles:
-        - { role: Kcih4518.haproxy }
+        - { role: kcih4518.haproxy }
 
 ## License
 
