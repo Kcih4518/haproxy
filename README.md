@@ -44,10 +44,6 @@ A list of extra global variables to add to the global configuration section insi
       roles:
         - { role: kcih4518.haproxy }
 
-## License
-
-MIT / BSD
-
 ## Author Information
 
 This role was created in 2022 by [Avery Yang](https://www.linkedin.com/in/avery-yang-85b554144/).
