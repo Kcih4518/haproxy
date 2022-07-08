@@ -1,5 +1,8 @@
 # Ansible Role: HAProxy
 
+[![CI](https://github.com/Oefenweb/ansible-haproxy/workflows/CI/badge.svg)](https://github.com/Oefenweb/ansible-haproxy/actions?query=workflow%3ACI)
+[![Ansible Galaxy](http://img.shields.io/badge/ansible--galaxy-haproxy-blue.svg)](https://galaxy.ansible.com/Oefenweb/haproxy)
+
 Installs HAProxy for kubernetes on Ubuntu Linux servers.
 
 **Note**: This role _officially_ supports HAProxy versions 2.3.2.
