@@ -1,0 +1,39 @@
+---
+# tasks file for haproxy
+- name: Create kubernetes manifests folder
+  ansible.builtin.file:
+      path: '/etc/kubernetes/manifests'
+      state: directory
+      mode: '0755'
+
+- name: Installing iproute2
+  ansible.builtin.package:
+      name: 'iproute2'
+      state: present
+
+- name: Installing haproxy
+  ansible.builtin.package:
+      name: 'haproxy'
+      state: present
+
+- name: Copy HAProxy configuration
+  check_mode: false
+  diff: true
+  ansible.builtin.template:
+      src: haproxy.cfg.j2
+      dest: /etc/haproxy/haproxy.cfg
+      mode: 0644
+      validate: haproxy -f %s -c -q
+  notify: restart haproxy
+
+- name: Copy HAProxy yaml
+  ansible.builtin.template:
+      src: haproxy.yaml.j2
+      dest: /etc/kubernetes/manifests/haproxy.yaml
+      mode: '0644'
+
+- name: Ensure HAProxy is started and enabled
+  ansible.builtin.service:
+      name: haproxy
+      state: started
+      enabled: true
